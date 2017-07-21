@@ -26,9 +26,9 @@ def fzfopen():
 
     ps.wait()
 
-    target_file = open(fzfopen_tmp_path).read()
-    if not target_file:
+    target_path = open(fzfopen_tmp_path).read().strip()
+    if not target_path:
         return
 
-    ps = subprocess.Popen(["xdg-open", target_file])
+    ps = subprocess.Popen(["xdg-open", target_path])
     ps.wait()
