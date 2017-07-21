@@ -16,16 +16,19 @@ def fzfopen_search():
     # open(fzfopen_tmp_path, "w").write(output.decode("utf-8"))
 
     # ps.wait()
-    ps2.communicate()
+    # ps2.communicate()
+    ps2.wait()
 
 
 def fzfopen():
-
-    ps = subprocess.Popen(["mate-terminal", "--class=floating", "--zoom", "2", "-e", "fzfopen_search"])
-    # ps = subprocess.Popen(["xterm", "-class", "floating", "-e", "fzfopen_search"])
+    # ps = subprocess.Popen(["mate-terminal", "--class=floating", "--zoom", "2", "-e", "fzfopen_search"])
+    ps = subprocess.Popen(["xterm", "-fn", "10x20", "-class", "floating", "-e", "fzfopen_search"])
 
     ps.wait()
 
     target_file = open(fzfopen_tmp_path).read()
+    if not target_file:
+        return
+
     ps = subprocess.Popen(["xdg-open", target_file])
     ps.wait()
