@@ -26,7 +26,8 @@ setup(
 
     entry_points = {
         "console_scripts": [
-            "fzfopen_search=fzfopen.main:fzfopen_search",
+            "fzfopen_find=fzfopen.main:fzfopen_find",
+            "fzfopen_locate=fzfopen.main:fzfopen_locate",
             "fzfopen=fzfopen.main:fzfopen",
         ],
     },
